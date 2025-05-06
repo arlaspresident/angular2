@@ -25,4 +25,15 @@ export class CourseTableComponent implements OnInit{
       error: (err) => console.error(err)
     });
   }
+  onSearch(term: string): void {
+    const searchTerm = term.toLowerCase();
+    this.filteredCourses = this.courses.filter(course =>
+      course.code.toLowerCase().includes(searchTerm) ||
+      course.coursename.toLowerCase().includes(searchTerm)
+    );
+  }
+onInputChange(event: Event): void {
+  const input = event.target as HTMLInputElement;
+  this.onSearch(input.value);
 }
+} 
