@@ -14,6 +14,10 @@ import { Course } from '../../models/course.model';
 export class CourseTableComponent implements OnInit{
   courses: Course[] = [];
   filteredCourses: Course[] = [];
+
+  sortField: keyof Course = 'code';
+  sortDirection: 'asc' | 'desc' = 'asc';
+
   constructor(private courseService: CourseService) {}
 
   ngOnInit(): void {
@@ -36,4 +40,21 @@ onInputChange(event: Event): void {
   const input = event.target as HTMLInputElement;
   this.onSearch(input.value);
 }
-} 
+sortBy(field: keyof Course): void {
+  if (this.sortField === field) {
+    this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+  } else {
+    this.sortField = field;
+    this.sortDirection = 'asc';
+  }
+
+  this.filteredCourses.sort((a, b) => {
+    const aVal = a[field]?.toString().toLowerCase() ?? '';
+    const bVal = b[field]?.toString().toLowerCase() ?? '';
+
+    if (aVal < bVal) return this.sortDirection === 'asc' ? -1 : 1;
+    if (aVal > bVal) return this.sortDirection === 'asc' ? 1 : -1;
+    return 0;
+  });
+}
+}

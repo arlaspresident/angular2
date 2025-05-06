@@ -2,6 +2,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 1rem;
+    font-family: Arial, sans-serif;
   }
   
   th, td {
@@ -9,11 +10,30 @@ table {
     padding: 0.5rem;
     text-align: left;
   }
+
+  th {
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    position: relative;
+  }
+
+  th.active {
+    background-color: #f0f0f0;
+    font-weight: bold;
+  }
   
+  th span {
+    margin-left: 5px;
+    font-size: 0.9em;
+    color: #555;
+  }
   input {
     margin-bottom: 1rem;
     padding: 0.5rem;
     width: 100%;
     max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
   }
   
