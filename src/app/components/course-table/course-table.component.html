@@ -5,9 +5,18 @@
 <table>
   <thead>
     <tr>
-      <th (click)="sortBy('code')">Kurskod</th>
-      <th (click)="sortBy('coursename')">Kursnamn</th>
-      <th (click)="sortBy('progression')">Progression</th>
+        <th (click)="sortBy('code')" [class.active]="sortField === 'code'">
+            Kurskod
+            <span *ngIf="sortField === 'code'">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
+          </th>
+          <th (click)="sortBy('coursename')" [class.active]="sortField === 'coursename'">
+            Kursnamn
+            <span *ngIf="sortField === 'coursename'">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
+          </th>
+          <th (click)="sortBy('progression')" [class.active]="sortField === 'progression'">
+            Progression
+            <span *ngIf="sortField === 'progression'">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
+          </th>
     </tr>
   </thead>
   <tbody>

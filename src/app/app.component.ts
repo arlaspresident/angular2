@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { CourseTableComponent } from './components/course-table/course-table.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [CourseTableComponent],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  standalone: true,
+  imports: [RouterOutlet],
+  template: '<router-outlet></router-outlet>',
 })
-export class AppComponent {
-  title = 'kurs-tabell';
-}
+export class AppComponent {}
