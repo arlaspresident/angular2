@@ -2,9 +2,6 @@
 
 en angular apk som visar en kurslista för webbutvecklingsprogrammet
 
-## live länk
-https://wlvnjaeebr.netlify.app/kurser
-
 ## funktioner
 
 - hämtar data från json via httpclient
