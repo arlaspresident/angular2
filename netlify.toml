@@ -1,0 +1,7 @@
+[build]
+  command = "ng build"
+  publish = "dist/kurs-tabell/browser"
+
+
+[[plugins]]
+  package = "@netlify/plugin-angular-uninstall"
